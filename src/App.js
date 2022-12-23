@@ -5,7 +5,14 @@ import SearchBox from './components/search-box/search-box.component';
 
 const App = () => {
   const [searchField, setSearchField] = useState('');
-  console.log(typeof(searchField));
+  
+  const [monsters, setMonsters] = useState([]);
+  
+  console.log("render");
+
+  fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then((users)=>setMonsters(users));
 
   const onSearchChange = (event) => {   
           const searchFieldString = event.target.value.toLocaleLowerCase();
@@ -20,7 +27,9 @@ const App = () => {
           onChangeHandler={onSearchChange} 
           placeHolder={"search monsters"}
           />
+          <CardList monsters={monsters} />
       </div>
+      
   )
 }
 
