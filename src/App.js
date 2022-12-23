@@ -46,10 +46,10 @@ const App = () => {
           onChangeHandler={onSearchChange} 
           placeHolder={"search monsters"}
           />
-      <SearchBox 
+      {/* <SearchBox 
           onChangeHandler={onStringChange} 
           placeHolder={"set string"}
-          />
+          /> */}
 
           <CardList monsters={filteredMonsters} />
       </div>
